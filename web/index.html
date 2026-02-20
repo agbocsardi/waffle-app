@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wednesday Waffle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .section {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        input {
+            padding: 8px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .video-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .video-item {
+            border: 1px solid #eee;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wednesday Waffle</h1>
+    
+    <div id="auth-section" class="section">
+        <h2>Join a Conversation</h2>
+        <input type="text" id="invite-code" placeholder="Invite Code">
+        <input type="text" id="username" placeholder="Your Username">
+        <button onclick="joinConversation()">Join</button>
+        
+        <h2>Create a Conversation</h2>
+        <input type="text" id="conversation-name" placeholder="Conversation Name">
+        <button onclick="createConversation()">Create</button>
+    </div>
+    
+    <div id="app-section" class="section hidden">
+        <h2>Your Conversations</h2>
+        <div id="conversations-list"></div>
+        
+        <h2>Upload Video</h2>
+        <input type="file" id="video-file" accept="video/*">
+        <input type="text" id="conversation-id" placeholder="Conversation ID">
+        <button onclick="uploadVideo()">Upload</button>
+        
+        <h2>Videos</h2>
+        <div id="videos-list" class="video-list"></div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

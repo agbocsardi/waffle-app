@@ -54,6 +54,9 @@ func main() {
 	mux.HandleFunc("POST /api/upload", videoHandler.Upload)
 	mux.HandleFunc("GET /api/videos", videoHandler.List)
 
+	// Serve static files
+	mux.Handle("/", http.FileServer(http.Dir("web")))
+
 	slog.Info("server listening", "addr", addr)
 	if err := http.ListenAndServe(addr, mux); err != nil {
 		slog.Error("server error", "error", err)
